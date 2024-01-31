@@ -1,9 +1,13 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 
-const inter = Inter({ subsets: ["latin"] });
+import './globals.css';
+import Header from "@/components/Header/header";
+import Providers from "@/utils/providers";
+import AsContext from "@/context/as-context";
+
+const inter = Inter({ subsets: ['latin'] });
 const perFont = localFont({
   src: [
     {
@@ -54,8 +58,9 @@ const irsFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Sepehr | Personal Portfolio",
-  description: "Sepher is a front-end (NextJs) developer, who is passionate about building beautiful and functional websites.",
+  title: 'Sepehr | Personal Portfolio',
+  description:
+    'Sepher is a front-end (NextJs) developer, who is passionate about building beautiful and functional websites.',
 };
 
 export default function RootLayout({
@@ -64,8 +69,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${perFont.variable} ${dstFont.variable} ${irsFont.variable}`}>{children}</body>
+    <html lang='en' className={"!scroll-smooth"}>
+      <body
+        className={`${inter.className} ${perFont.variable} ${dstFont.variable} ${irsFont.variable} w-screen bg-gray-50 text-gray-950 after:absolute after:top-[-6rem] after:right-[-8rem] after:w-[31.25rem] after:aspect-square after:rounded-full after:blur-[10rem] sm:after:w-[68.75rem] after:bg-[#fbe2e3] before:absolute before:top-[-1rem] before:left-[-35rem] before:w-[50rem] before:h-[31.25rem] before:rounded-full before:blur-[10rem] sm:before:w-[68.75rem] before:bg-[#dbd7fb] md:before:left-[-33rem] lg:before:left-[-28rem] xl:before:left-[-15rem] 2xl:before:left-[-5rem] after:-z-10 before:-z-10`}
+        style={{
+          maxWidth: '100vw',
+          overflowX: 'clip',
+        }}
+      >
+      <AsContext>
+        <Header/>
+        {children}
+      </AsContext>
+      </body>
     </html>
   );
 }

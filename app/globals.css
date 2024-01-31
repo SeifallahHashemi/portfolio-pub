@@ -7,3 +7,8 @@
     direction: rtl;
   }
 }
+@layer components {
+  .centered {
+    @apply flex justify-center items-center;
+  }
+}

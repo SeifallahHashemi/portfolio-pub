@@ -1,0 +1,55 @@
+/*.mask {
+  position: absolute;
+  mask: radial-gradient(circle 600px at 50% 30%, white 10%, transparent 80%);
+  width: 40rem;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: -1;
+  //clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  clip-path: polygon(45% 0%, 55% 0%, 100% 100%, 0% 100%);
+  filter: blur(5rem);
+  backdrop-filter: blur(10rem);
+}*/
+.wrapper {
+  .image {
+    animation: spin 22395ms linear infinite;
+  }
+  &:nth-of-type(2) {
+    .image {
+      --translate: 375px;
+    }
+  }
+  &:nth-of-type(3) {
+    .image {
+      border-radius: 50%;
+      --translate: 338px;
+    }
+  }
+  &:nth-of-type(4) {
+    .image {
+      --translate: 280px;
+    }
+  }
+  &:nth-of-type(5) {
+    .image {
+      --translate: 215px;
+    }
+  }
+  &:nth-of-type(6) {
+    .image {
+      --translate: 150px;
+    }
+  }
+  &:nth-of-type(7) {
+    .image {
+      --translate: 95px;
+    }
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) translate(var(--translate, 425px)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(var(--translate, 425px)) rotate(360deg);
+  }
+}
