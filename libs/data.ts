@@ -47,6 +47,7 @@ export const experiencesData = [
             "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
         icon: React.createElement(LuGraduationCap),
         date: "2019",
+        color: "#f1bf80"
     },
     {
         title: "Front-End Developer",
@@ -55,6 +56,7 @@ export const experiencesData = [
             "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
         icon: React.createElement(CgWorkAlt),
         date: "2019 - 2021",
+        color: "#8cf07f"
     },
     {
         title: "Full-Stack Developer",
@@ -63,6 +65,7 @@ export const experiencesData = [
             "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
         icon: React.createElement(FaReact),
         date: "2021 - present",
+        color: "#ffde12"
     },
 ] as const;
 
@@ -97,17 +100,11 @@ export const skillsData = [
     "TypeScript",
     "React",
     "Next.js",
-    "Node.js",
     "Git",
     "Tailwind",
     "Prisma",
     "MongoDB",
     "Redux",
-    "GraphQL",
-    "Apollo",
-    "Express",
-    "PostgreSQL",
-    "Python",
-    "Django",
+    "GSAP",
     "Framer Motion",
 ] as const;

@@ -18,17 +18,10 @@ import {
 import {useActiveSection} from "@/hooks/useActiveSection";
 
 const Intro = () => {
+  const {setActiveSection, setTimeOfLastClick} = useActiveSection();
+
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope);
-  const {ref, inView: inViewScroll} = useInViewScroll({
-    threshold: 0,
-  });
-  const { setActiveSection } = useActiveSection();
-  useEffect(() => {
-    if (inViewScroll) {
-      setActiveSection('home')
-    }
-  }, [inViewScroll, setActiveSection]);
   useEffect(() => {
     if (isInView) {
       animate(
@@ -51,7 +44,6 @@ const Intro = () => {
     <section
       className={'w-screen h-screen absolute top-0 left-0 font-iranSans'}
       id={"home"}
-      ref={ref}
     >
       <div className={'w-full h-full flex justify-center items-center'}>
         <motion.div
@@ -83,7 +75,7 @@ const Intro = () => {
       </div>
       <motion.div
         className={
-          'w-screen h-[25vh] sm:h-[20vh] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] md:h-[8rem] lg:h-[8rem] xl:h-[9rem] flex justify-center items-center -translate-y-[12rem] -translate-x-4 border border-white border-opacity-40 bg-white bg-opacity-10 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] rounded-md'
+          'w-screen h-[25vh] sm:h-[20vh] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] md:h-[8rem] lg:h-[8rem] xl:h-[9rem] flex justify-center items-center -translate-y-[12rem] -translate-x-4 border border-white border-opacity-40 bg-white bg-opacity-10 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] rounded-md dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75 dark:backdrop-blur-[0.5rem]'
         }
         style={{ marginInline: 'auto' }}
         initial={{ opacity: 0, y: 0, x: -15 }}
@@ -117,6 +109,10 @@ const Intro = () => {
             className={
               'group bg-gray-900 text-white px-7 py-3 centered gap-2 rounded-full opacity-0 outline-none '
             }
+            onClick={() => {
+              setActiveSection('contact');
+              setTimeOfLastClick(Date.now());
+            }}
           >
             <LuArrowRight className={'group-hover:translate-x-1 transition'} />
             ارتباط با من
@@ -132,7 +128,7 @@ const Intro = () => {
           href={'/CV.pdf'}
           download
           className={
-            'bg-gray-100 sm:bg-slate-50 px-7 py-3 centered gap-2 rounded-full opacity-0 border border-black/10'
+            'bg-gray-100 sm:bg-slate-50 px-7 py-3 centered gap-2 rounded-full opacity-0 border border-black/10 dark:bg-white/10'
           }
         >
           <LuDownload />
@@ -146,7 +142,7 @@ const Intro = () => {
           <a
             href={'#'}
             className={
-              'bg-gray-100 sm:bg-slate-50 relative z-[11] text-gray-700 p-4 centered gap-2 rounded-full opacity-0  border border-black/10'
+              'bg-gray-100 sm:bg-slate-50 relative z-[11] text-gray-700 p-4 centered gap-2 rounded-full opacity-0  border border-black/10 dark:bg-gray-900 dark:text-white/60'
             }
           >
             <LuLinkedin />
@@ -155,7 +151,7 @@ const Intro = () => {
             href={'https://www.instagram.com/sepehr_next.js_developer/'}
             target={'_blank'}
             className={
-              'bg-gray-100 sm:bg-slate-50 relative z-[9] text-gray-700 p-4 centered gap-2 rounded-full md:-left-[2rem] md:hover:ml-[20px] opacity-0  border border-black/10'
+              'bg-gray-100 sm:bg-slate-50 relative z-[9] text-gray-700 p-4 centered gap-2 rounded-full md:-left-[2rem] md:hover:ml-[20px] opacity-0 border border-black/10 dark:bg-gray-900 dark:text-white/60'
             }
             style={{ transition: 'margin 0.2s ease' }}
           >
@@ -164,7 +160,7 @@ const Intro = () => {
           <a
             href={'#'}
             className={
-              'bg-gray-100 sm:bg-slate-50 relative z-[8] text-gray-700 p-4 centered gap-2 rounded-full md:-left-[4rem] md:hover:ml-[20px] opacity-0  border border-black/10'
+              'bg-gray-100 sm:bg-slate-50 relative z-[8] text-gray-700 p-4 centered gap-2 rounded-full md:-left-[4rem] md:hover:ml-[20px] opacity-0  border border-black/10 dark:bg-gray-900 dark:text-white/60'
             }
             style={{ transition: 'margin 0.2s ease' }}
           >
@@ -173,7 +169,7 @@ const Intro = () => {
           <a
             href={'#'}
             className={
-              'bg-gray-100 sm:bg-slate-50 relative z-[7] text-gray-700 p-4 centered gap-2 rounded-full md:-left-[6rem] md:hover:ml-[20px] opacity-0  border border-black/10'
+              'bg-gray-100 sm:bg-slate-50 relative z-[7] text-gray-700 p-4 centered gap-2 rounded-full md:-left-[6rem] md:hover:ml-[20px] opacity-0  border border-black/10 dark:bg-gray-900 dark:text-white/60'
             }
             style={{ transition: 'margin 0.2s ease' }}
           >
@@ -182,7 +178,7 @@ const Intro = () => {
           <a
             href={'#'}
             className={
-              'bg-gray-100 sm:bg-slate-50 relative z-[6] text-gray-700 p-4 centered gap-2 rounded-full md:-left-[8rem] md:hover:ml-[20px] opacity-0  border border-black/10'
+              'bg-gray-100 sm:bg-slate-50 relative z-[6] text-gray-700 p-4 centered gap-2 rounded-full md:-left-[8rem] md:hover:ml-[20px] opacity-0  border border-black/10 dark:bg-gray-900 dark:text-white/60'
             }
             style={{ transition: 'margin 0.2s ease' }}
           >

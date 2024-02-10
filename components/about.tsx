@@ -3,17 +3,19 @@ import React, {useEffect} from 'react';
 import SectionHeader from "@/components/section-header";
 import {useInView} from "react-intersection-observer";
 import {useActiveSection} from "@/hooks/useActiveSection";
+import useInview from "@/hooks/useInview";
 
 const About = () => {
-    const {ref, inView} = useInView({
+    const {ref} = useInview("about", 1);
+    /*const {ref, inView} = useInView({
         threshold: 0.75,
     });
-    const { setActiveSection } = useActiveSection();
+    const { setActiveSection, timeOfLastClick } = useActiveSection();
     useEffect(() => {
-        if (inView) {
+        if (inView && Date.now() - timeOfLastClick > 1000) {
             setActiveSection('about')
         }
-    }, [inView, setActiveSection]);
+    }, [inView, setActiveSection, timeOfLastClick]);*/
     return (
         <section ref={ref} className={"mb-28 max-w-[45rem] text-justify leading-8 sm:mb-40 scroll-mt-24"} id={"about"}>
             <SectionHeader>درباره من</SectionHeader>

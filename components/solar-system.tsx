@@ -18,6 +18,7 @@ import { motion } from 'framer-motion';
 
 
 import classes from "./solar-system.module.scss";
+import useInview from "@/hooks/useInview";
 
 
 const logos = [
@@ -49,8 +50,10 @@ const variants = {
     }
 }
 const SolarSystem = () => {
+    const {ref} = useInview("home", 0.5);
   return (
     <motion.div
+        ref={ref}
       className={'w-screen h-[128vh] flex items-center justify-center relative isolate overflow-y-clip'}
       style={{
         backgroundImage: `url(${BGI.src})`,

@@ -7,11 +7,11 @@ import {cn} from "@/utils/tailwind-merger";
 import {useActiveSection} from "@/hooks/useActiveSection";
 
 const Header = () => {
-    const { activeSection, setActiveSection} = useActiveSection()
+    const { activeSection, setActiveSection, setTimeOfLastClick} = useActiveSection()
     return (
         <header className={"z-[999] relative"}>
             <motion.div
-                className={"fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] md:top-6 md:w-[36rem] md:h-[3.25rem] md:rounded-full"}
+                className={"fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] md:top-6 md:w-[36rem] md:h-[3.25rem] md:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"}
                 initial={{ opacity: 0, y: -100, x: "-50%"}}
                 animate={{ opacity: 1, y: 0, x: "-50%"}}
             ></motion.div>
@@ -22,11 +22,14 @@ const Header = () => {
                                    initial={{ opacity: 0, y: -100}}
                                    animate={{ opacity: 1, y: 0}}
                         >
-                            <Link href={link.hash} onClick={() => setActiveSection(link.enName)} className={cn("flex justify-center items-center p-4 text-nowrap md:px-3 md:py-3 hover:text-gray-950 transition font-iranSans", {"text-gray-950": activeSection === link.enName})}>
+                            <Link href={link.hash} onClick={() => {
+                                setActiveSection(link.enName)
+                                setTimeOfLastClick(Date.now())
+                            }} className={cn("flex justify-center items-center p-4 text-nowrap md:px-3 md:py-3 hover:text-gray-950 transition font-iranSans dark:text-gray-500 dark:hover:text-gray-300", {"text-gray-950 dark:text-gray-200": activeSection === link.enName})}>
                                 {link.name}
                                 {link.enName === activeSection && (
                                     <motion.span
-                                        className={"bg-gray-100 rounded-full absolute inset-0 -inset-x-[0.5rem] -z-10"}
+                                        className={"bg-gray-100 rounded-full absolute inset-0 -inset-x-[0.5rem] -z-10 dark:bg-gray-800"}
                                         layoutId={'activeSection'}
                                         transition={{
                                             type:'spring',
