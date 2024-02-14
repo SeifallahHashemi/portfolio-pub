@@ -1,7 +1,8 @@
 import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
+import { TbBrandNextjs } from "react-icons/tb";
+import { RiJavascriptFill } from "react-icons/ri";
 import corpcommentImg from "@/public/Images/corpcomment.png";
 import rmtdevImg from "@/public/Images/rmtdev.png";
 import wordanalyticsImg from "@/public/Images/wordanalytics.png";
@@ -41,30 +42,33 @@ export const links = [
 
 export const experiencesData = [
     {
-        title: "Graduated bootcamp",
-        location: "Miami, FL",
+        title: "شرکت در دوره آموزشی 7learn",
+        location: "7learn",
+        link: "https://7learn.com/",
         description:
-            "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
-        icon: React.createElement(LuGraduationCap),
-        date: "2019",
+            "یک دوره آموزشی 50 ساعته، برای یادگیری جاوااسکریپت، اچ تی ام ال و سی اس اس",
+        icon: React.createElement(RiJavascriptFill),
+        date: "2016",
         color: "#f1bf80"
     },
     {
-        title: "Front-End Developer",
-        location: "Orlando, FL",
+        title: "شرکت در دوره آموزشی Udemy",
+        location: "Udemy",
+        link: "https://www.udemy.com/",
         description:
-            "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
-        icon: React.createElement(CgWorkAlt),
-        date: "2019 - 2021",
+            "شرکت در دوره React ، استاد Maximilian Schwarzmüller : آموزش react, redux, framer-motion, tanstack-query,...",
+        icon: React.createElement(FaReact),
+        date: "2020 - 2021",
         color: "#8cf07f"
     },
     {
-        title: "Full-Stack Developer",
-        location: "Houston, TX",
+        title: "شرکت در دوره آموزشی Udemy",
+        location: "Udemy",
+        link: "https://www.udemy.com/",
         description:
-            "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-        icon: React.createElement(FaReact),
-        date: "2021 - present",
+            "شرکت در دوره Next.js ، استاد Maximilian Schwarzmüller : آموزش SSR, ISR, CustomComponents, Fonts,...",
+        icon: React.createElement(TbBrandNextjs),
+        date: "2021 - 2022",
         color: "#ffde12"
     },
 ] as const;

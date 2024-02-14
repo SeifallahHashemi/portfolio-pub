@@ -17,9 +17,9 @@ const About = () => {
         }
     }, [inView, setActiveSection, timeOfLastClick]);*/
     return (
-        <section ref={ref} className={"mb-28 max-w-[45rem] text-justify leading-8 sm:mb-40 scroll-mt-24"} id={"about"}>
+        <section ref={ref} className={"mb-28 max-w-[45rem] text-justify leading-8 sm:mb-40 scroll-mt-24 [view-timeline-name:--reveal-wrapper]"} id={"about"}>
             <SectionHeader>درباره من</SectionHeader>
-            <p className="mb-3 font-iranSansDn">
+            <p className="mb-3 font-iranSansDn supports-[animation-timeline]:reveal-text text-lg lg:leading-[1]">
                 پس از فارغ التحصیلی در رشته{" "}
                 <span className="font-bold"> مهندسی پزشکی</span>، تصمیم گرفتم به دنبال علاقه ام به برنامه نویسی بروم. من در یک بوت کمپ برنامه نویسی ثبت نام کردم و{" "}
                 <span className="font-bold">توسعه وب فرانت اند </span>رو یاد گرفتم.{" "}
@@ -31,15 +31,21 @@ const About = () => {
                 هست. من همچنین با typescript و prisma و framer-motion و... آشنا هستم. من همیشه دنبال یادگیری
                 تکنولوژی های جدید هستم. من در حال حاضر به دنبال یک موقعیت شغلی{" "}
                 <span className="font-bold"> تمام وقت </span> به عنوان توسعه دهنده Next.js هستم.
-            </p>
-
-            <p className={"font-iranSansDn"}>
+                <br/>
                 <span className="italic">من در اوقات فراغت </span>پلی استیشن بازی میکنم، فوتبال یا سریال تماشا میکنم، فوتسال بازی میکنم. من همچنین {" "}
                 <span className="font-bold">در شبکه های اجتماعی</span> فعالیت میکنم. درحال حاظر من
                 به دنبال یادگیری کار با{" "}
                 <span className="font-bold">هوش مصنوعی chatGPT</span> هستم. علاوه بر اینها
                 دنبال یادگیری after-effect , premier نیز هستم.
             </p>
+
+            {/*<p className={"font-iranSansDn"}>
+                <span className="italic">من در اوقات فراغت </span>پلی استیشن بازی میکنم، فوتبال یا سریال تماشا میکنم، فوتسال بازی میکنم. من همچنین {" "}
+                <span className="font-bold">در شبکه های اجتماعی</span> فعالیت میکنم. درحال حاظر من
+                به دنبال یادگیری کار با{" "}
+                <span className="font-bold">هوش مصنوعی chatGPT</span> هستم. علاوه بر اینها
+                دنبال یادگیری after-effect , premier نیز هستم.
+            </p>*/}
         </section>
     );
 };

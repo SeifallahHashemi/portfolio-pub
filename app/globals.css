@@ -3,8 +3,18 @@
 @tailwind utilities;
 
 @layer base {
+  @property --progress {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+  }
   body {
     direction: rtl;
+  }
+  @keyframes fill-text {
+    to {
+      --progress: 100%;
+    }
   }
 }
 @layer components {
@@ -16,6 +26,36 @@
   }
   .haf {
     @apply focus:scale-110 hover:scale-110 active:scale-105;
+  }
+
+  .reveal-text {
+    --faded-color: #111;
+    --higlighted-color: #ccc;
+    /* Compared to the video, I updated this article to reflect
+       a solution that's so much easier. Creating a single gradient
+       with two colors, and then animating the starting/end point of
+       the two colors with a CSS variable --progress. CSS @property
+       makes this so much easier for us now.
+    */
+    --progress: 0%;
+    background-image: linear-gradient(
+            to right,
+            var(--higlighted-color),
+            var(--higlighted-color) var(--progress),
+            var(--faded-color) var(--progress),
+            var(--faded-color)
+    );
+    background-clip: text;
+    background-repeat: no-repeat;
+    color: transparent;
+    display: inline;
+    animation: fill-text linear both alternate-reverse;
+    animation-timeline: --reveal-wrapper;
+    animation-range: entry 70% cover 60%;
+  }
+  html.dark .reveal-text {
+    --faded-color: #ccc;
+    --higlighted-color: #cccccc40;
   }
 }
 

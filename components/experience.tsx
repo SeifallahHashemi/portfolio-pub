@@ -72,9 +72,9 @@ function TimelineElement({ item }: any) {
             color: theme === 'light' ? '#fff' : '#111827',
         }}
       >
-        <h3 className={'font-semibold capitalize'}>{item.title}</h3>
-        <h4 className={'font-normal !mt-0'}>{item.location}</h4>
-        <p className={'!mt-1 !font-normal text-gray-700 dark:text-white/75'}>{item.description}</p>
+          <div className={"w-full h-full flex flex-col items-start"} dir={"rtl"} ><h3 className={'font-semibold capitalize'}>{item.title}</h3>
+              <a className={'font-normal !mt-0 text-sky-200 hover:underline'} target={"_blank"} href={item.link || ""}>{item.location}</a>
+              <p className={'!mt-1 !font-normal text-gray-700 dark:text-white/75 text-justify'}>{item.description}</p></div>
       </VerticalTimelineElement>
     </div>
   );
